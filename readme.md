@@ -68,5 +68,5 @@ docker compose up --build
 ## Автор
 
 - Имя: Алексей
-- GitHub: [https://github.com/your-username](https://github.com/AleksNWL)
+- GitHub: [https://github.com/AleksNWL](https://github.com/AleksNWL)
 - Email: Grifon595@yandex.ru
