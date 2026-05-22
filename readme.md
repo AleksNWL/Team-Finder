@@ -67,7 +67,6 @@ docker compose up --build
 
 ## Автор
 
-<!-- Укажите свои данные перед сдачей -->
-- Имя: _Ваше имя_
-- GitHub: https://github.com/your-username
-- Email: your.email@example.com
+- Имя: Алексей
+- GitHub: [https://github.com/your-username](https://github.com/AleksNWL)
+- Email: Grifon595@yandex.ru
