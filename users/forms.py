@@ -2,13 +2,14 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import PasswordChangeForm
 
+from team_finder.constants import USER_NAME_MAX_LENGTH, USER_SURNAME_MAX_LENGTH
 from users.models import User
 from users.validators import validate_github_url, validate_phone_format
 
 
 class RegistrationForm(forms.Form):
-    name = forms.CharField(max_length=124, label="Имя")
-    surname = forms.CharField(max_length=124, label="Фамилия")
+    name = forms.CharField(max_length=USER_NAME_MAX_LENGTH, label="Имя")
+    surname = forms.CharField(max_length=USER_SURNAME_MAX_LENGTH, label="Фамилия")
     email = forms.EmailField(label="Email")
     password = forms.CharField(widget=forms.PasswordInput, label="Пароль")
 
@@ -57,14 +58,6 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ("name", "surname", "avatar", "about", "phone", "github_url")
-        labels = {
-            "name": "Имя",
-            "surname": "Фамилия",
-            "avatar": "Аватар",
-            "about": "О себе",
-            "phone": "Телефон",
-            "github_url": "GitHub",
-        }
 
     def clean_phone(self):
         phone = validate_phone_format(self.cleaned_data["phone"])

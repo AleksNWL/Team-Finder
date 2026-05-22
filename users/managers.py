@@ -1,5 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 
+from team_finder.constants import USER_PHONE_MAX_LENGTH
 from users.avatar import build_avatar_file
 
 
@@ -19,7 +20,7 @@ class UserManager(BaseUserManager):
         user = self.model(email=email, **extra_fields)
         if not user.phone:
             suffix = abs(hash(email)) % 10_000_000_000
-            user.phone = f"+7{suffix:010d}"[:12]
+            user.phone = f"+7{suffix:010d}"[:USER_PHONE_MAX_LENGTH]
         user.set_password(password)
         self._assign_avatar(user)
         user.save(using=self._db)

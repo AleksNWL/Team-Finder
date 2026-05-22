@@ -5,5 +5,7 @@ __pycache__
 .venv
 venv
 media
-*.md
 docs
+templates_var1
+templates_var2
+templates_var3

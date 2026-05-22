@@ -2,6 +2,7 @@ import re
 
 from django.core.exceptions import ValidationError
 
+GITHUB_HOST = "github.com"
 
 PHONE_PATTERN = re.compile(r"^(\+7|8)(\d{10})$")
 
@@ -29,6 +30,6 @@ def validate_phone_format(value):
 def validate_github_url(value):
     if not value:
         return value
-    if "github.com" not in value.lower():
+    if GITHUB_HOST not in value.lower():
         raise ValidationError("Ссылка должна вести на GitHub.")
     return value
